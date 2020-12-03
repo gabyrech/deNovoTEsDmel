@@ -31,7 +31,20 @@ LIBPATH: Full Path to TE library used for annotate TEs (MCTE.fasta)
 
 GENOMEPATH: Full path to the genome that will be annotated.
 
+## Post TE annotation processing: 
+In this step, we joining fragments at < 500bp, remove TE < 100bp, reomove copies from some families that are annotated only with the satelite region of the consensus and remove TEs overlapping with Hsp Genes.
 
+```
+$ ./postTEAnnot.sh WORKDIR TEANNPROJECT DIRNAME 500
+```
+
+WORKDIR: Project Directory where all files/folder are created.
+
+TEANNPROJECT: Original name of the TEannot project.
+
+DIRNAME: Name of the directory that is created in WORKDIR. This contains one bed file per "family".
+
+JOINDIST: Bedtools merge option: Maximum distance between features allowed for features to be merged.
 
 
 ## Other Files:
