@@ -1,5 +1,14 @@
 #!/usr/bin/bash
 
+# This script performe polishing of draft genome assemblies using long and short reads.
+# Run after obtaining the contig sequences from your favourite assembler (canu, flye, etc.)
+# The script will run 4 rounds of Racon using long reads and 1 round of Pilon using Illumina short-reads.
+# After polishing, the script gives basic assembly information and runs BUSCO.
+
+set -o nounset
+set -o errexit 
+
+#Parameters:
 WRKDIR=$1 # working dir where is the raw assembly to be polished. 
 RAWASS=$2 # file name of the raw assembly
 ONTFASTQPATH=$3 # full path to ONT fastq file (.gz)
